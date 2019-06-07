@@ -1,0 +1,44 @@
+{
+	"format_version": 1,
+	"imports": [
+		{
+			"target_table": "SAP_CRUN_PERFORMANCE_SNGLRECIN",
+			"source_data": {
+			"data_type": "CSV",
+				"file_name": "SNGLRECIN.csv",
+				"has_header": true
+			},
+			"import_settings": {
+			"import_columns": [
+					"ID",
+					"TRANSID",
+					"CONNID",
+					"CONNCOUNTER",
+					"CDATE",
+					"CTIME",
+					"SERVICEID"
+				]
+			}
+		},
+		{
+			"target_table": "SAP_CRUN_PERFORMANCE_SNGLRECOUT",
+			"source_data": {
+			"data_type": "CSV",
+				"file_name": "SNGLRECOUT.csv",
+				"has_header": true
+			},
+			"import_settings": {
+			"import_columns": [
+					"ID",
+					"SNGLREFTO",
+					"TRANSID",
+					"CONNID",
+					"CONNCOUNTER",
+					"CDATE",
+					"CTIME",
+					"SERVICEID"
+				]
+			}
+		}
+	]
+}

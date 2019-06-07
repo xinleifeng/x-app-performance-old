@@ -1,0 +1,193 @@
+{
+  "namespace": "sap.crun.performance",
+  "definitions": {
+    "PerformanceDataService": {
+      "kind": "service",
+      "@source": "srv/cat-service.cds"
+    },
+    "PerformanceDataService.SNGLRECIN": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@cds.persistence.name": "PERFORMANCEDATASERVICE_SNGLRECIN",
+      "@readonly": true,
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "sap.crun.performance.SNGLRECIN"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "ID": {
+          "@cds.persistence.name": "ID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "TRANSID": {
+          "@cds.persistence.name": "TRANSID",
+          "type": "cds.String"
+        },
+        "CONNID": {
+          "@cds.persistence.name": "CONNID",
+          "type": "cds.String"
+        },
+        "CONNCOUNTER": {
+          "@cds.persistence.name": "CONNCOUNTER",
+          "type": "cds.String"
+        },
+        "CDATE": {
+          "@cds.persistence.name": "CDATE",
+          "type": "cds.String"
+        },
+        "CTIME": {
+          "@cds.persistence.name": "CTIME",
+          "type": "cds.String"
+        },
+        "SERVICEID": {
+          "@cds.persistence.name": "SERVICEID",
+          "type": "cds.String"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "PerformanceDataService.SNGLRECOUT": {
+      "kind": "entity",
+      "@Capabilities.DeleteRestrictions.Deletable": false,
+      "@Capabilities.InsertRestrictions.Insertable": false,
+      "@Capabilities.UpdateRestrictions.Updatable": false,
+      "@cds.persistence.name": "PERFORMANCEDATASERVICE_SNGLRECOUT",
+      "@readonly": true,
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "sap.crun.performance.SNGLRECOUT"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "ID": {
+          "@cds.persistence.name": "ID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "SNGLREFTO": {
+          "@cds.persistence.name": "SNGLREFTO",
+          "type": "cds.String"
+        },
+        "TRANSID": {
+          "@cds.persistence.name": "TRANSID",
+          "type": "cds.String"
+        },
+        "CONNID": {
+          "@cds.persistence.name": "CONNID",
+          "type": "cds.String"
+        },
+        "CONNCOUNTER": {
+          "@cds.persistence.name": "CONNCOUNTER",
+          "type": "cds.String"
+        },
+        "CDATE": {
+          "@cds.persistence.name": "CDATE",
+          "type": "cds.String"
+        },
+        "CTIME": {
+          "@cds.persistence.name": "CTIME",
+          "type": "cds.String"
+        },
+        "SERVICEID": {
+          "@cds.persistence.name": "SERVICEID",
+          "type": "cds.String"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "sap.crun.performance.SNGLRECIN": {
+      "kind": "entity",
+      "@cds.persistence.name": "SAP_CRUN_PERFORMANCE_SNGLRECIN",
+      "elements": {
+        "ID": {
+          "@cds.persistence.name": "ID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "TRANSID": {
+          "@cds.persistence.name": "TRANSID",
+          "type": "cds.String"
+        },
+        "CONNID": {
+          "@cds.persistence.name": "CONNID",
+          "type": "cds.String"
+        },
+        "CONNCOUNTER": {
+          "@cds.persistence.name": "CONNCOUNTER",
+          "type": "cds.String"
+        },
+        "CDATE": {
+          "@cds.persistence.name": "CDATE",
+          "type": "cds.String"
+        },
+        "CTIME": {
+          "@cds.persistence.name": "CTIME",
+          "type": "cds.String"
+        },
+        "SERVICEID": {
+          "@cds.persistence.name": "SERVICEID",
+          "type": "cds.String"
+        }
+      }
+    },
+    "sap.crun.performance.SNGLRECOUT": {
+      "kind": "entity",
+      "@cds.persistence.name": "SAP_CRUN_PERFORMANCE_SNGLRECOUT",
+      "elements": {
+        "ID": {
+          "@cds.persistence.name": "ID",
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "SNGLREFTO": {
+          "@cds.persistence.name": "SNGLREFTO",
+          "type": "cds.String"
+        },
+        "TRANSID": {
+          "@cds.persistence.name": "TRANSID",
+          "type": "cds.String"
+        },
+        "CONNID": {
+          "@cds.persistence.name": "CONNID",
+          "type": "cds.String"
+        },
+        "CONNCOUNTER": {
+          "@cds.persistence.name": "CONNCOUNTER",
+          "type": "cds.String"
+        },
+        "CDATE": {
+          "@cds.persistence.name": "CDATE",
+          "type": "cds.String"
+        },
+        "CTIME": {
+          "@cds.persistence.name": "CTIME",
+          "type": "cds.String"
+        },
+        "SERVICEID": {
+          "@cds.persistence.name": "SERVICEID",
+          "type": "cds.String"
+        }
+      }
+    }
+  },
+  "version": {
+    "csn": "1.0"
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.13.4"
+  },
+  "$version": "1.0",
+  "@sql_mapping": "plain"
+}

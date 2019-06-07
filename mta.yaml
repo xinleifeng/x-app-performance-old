@@ -1,0 +1,69 @@
+ID: x-app-performance
+_schema-version: '2.1'
+description: collect and store performance for crun
+version: 0.0.1
+modules:
+  - name: x-app-performance-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: x-app-performance-db-hdi-container
+  - name: x-app-performance-srv
+    type: java
+    path: srv
+    parameters:
+      memory: 1024M
+    provides:
+      - name: srv_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: x-app-performance-db-hdi-container
+        properties:
+          JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml: {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
+  - name: ui
+    type: html5
+    path: ui
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    build-parameters:
+      builder: grunt
+    requires:
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: '~{url}'
+      - name: uaa_x-app-performance
+  - name: srv2spring
+    type: java
+    path: srv2spring
+    parameters:
+      memory: 512M
+    provides:
+      - name: srv2spring_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: x-app-performance-db-hdi-container
+        properties:
+          JBP_CONFIG_RESOURCE_CONFIGURATION: '[tomcat/webapps/ROOT/META-INF/context.xml: {"service_name_for_DefaultDB" : "~{hdi-container-name}"}]'
+    build-parameters:
+      build-result: 'target/*.jar'
+resources:
+  - name: x-app-performance-db-hdi-container
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: '${service-name}'
+  - name: uaa_x-app-performance
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+    type: org.cloudfoundry.managed-service
